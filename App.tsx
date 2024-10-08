@@ -1,118 +1,107 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+export default function App() {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+    <View style={styles.container}>
+      {/* Top design */}
+      <View style = {{flexDirection:'row',gap:-50}}>
+        <View style={styles.topDesign} />
+        <View style={styles.topDesign1} />
+       
+      </View>
+
+      {/* Demo Button */}
+      <TouchableOpacity style={styles.demoButton}>
+        <Text style={styles.demoText}>Demo</Text>
+      </TouchableOpacity>
+
+      {/* Login Form */}
+      <View style={styles.formContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="Enter User Id"
+          placeholderTextColor="#aaa"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Enter Password"
+          placeholderTextColor="#aaa"
+          secureTextEntry={true}
+        />
+
+        {/* Sign In and Sign Up buttons */}
+        <View style={styles.buttonContainer}>
+          <Button title="Sign In" color="#800040" onPress={() => {}} />
+          <Button title="Sign Up" color="#800040" onPress={() => {}} />
+        </View>
+      </View>
     </View>
   );
 }
 
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
-
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  topDesign: {
+    width: '80%',
+    height: 190,
+    backgroundColor: '#800040',
+    borderBottomLeftRadius: 7000,
+    borderBottomRightRadius: 20000,
+    marginRight:20,
+    top: -200,
+    
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  topDesign1: {
+    width: '80%',
+    height: 160,
+    backgroundColor: '#800040',
+    borderBottomRightRadius: 20000,
+    borderBottomLeftRadius: 40000,
+    marginLeft:20,
+   
+    //positi=on: 'absolute',
+    top: -200,
   },
-  highlight: {
-    fontWeight: '700',
+  demoButton: {
+    position: 'absolute',
+    top: 150,
+    right: 30,
+    backgroundColor: '#800040',
+    padding: 10,
+    borderRadius: 5,
+  },
+  demoText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  formContainer: {
+    width: '80%',
+    marginTop: 200,
+    verticalAlign:'middle',
+    alignSelf:'center'
+    
+  },
+  input: {
+    height: 40,
+    borderColor: '#000',
+    borderWidth: 1,
+    borderRadius: 5,
+    marginBottom: 20,
+    paddingHorizontal: 10,
+    backgroundColor: '#f8f8f8',
+  },
+  buttonContainer: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    height: 90,
+    width: '40%',
+    alignSelf:'center',
+    borderRadius:50,
   },
 });
-
-export default App;
