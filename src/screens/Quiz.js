@@ -1,7 +1,9 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 
 const Quiz = () => {
+  const navigation = useNavigation();
   // Array of health-related questions
   const questions = [
     {
@@ -79,6 +81,7 @@ const Quiz = () => {
       Alert.alert("Quiz Completed", `You scored ${score + 1}/${questions.length}`);
       setCurrentQuestionIndex(0); // Reset quiz
       setScore(0); // Reset score
+      navigation.navigate('Home');
     }
   };
 
