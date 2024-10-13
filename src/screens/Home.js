@@ -18,7 +18,7 @@ const HomeScreen = ({ navigation }) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-       // onPress={() => navigation.navigate('Quiz')}
+        onPress={() => navigation.navigate('Medicine Info')}
       >
         <Text style={styles.buttonText}>View Your Medicine</Text>
       </TouchableOpacity>
@@ -26,7 +26,7 @@ const HomeScreen = ({ navigation }) => {
       <View style = {{flexDirection:'row',gap:15}}>
       <TouchableOpacity
         style={styles.button}
-       // onPress={() => navigation.navigate('Quiz')}
+        //onPress={() => navigation.navigate('Medicine Info')}
       >
         <Text style={styles.buttonText}>Simple Test</Text>
       </TouchableOpacity>
